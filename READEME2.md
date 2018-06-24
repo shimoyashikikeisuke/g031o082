@@ -1,6 +1,6 @@
 # g031o082
  ## 成果物
-   * 06/20
+   * 06/24
      * form.php
     　　 <br> [コード](https://github.com/shimoyashikikeisuke/g031o082/commit/eb9f0b251b055fdf6e42ddbcdbde5c3a577f7c00)
      * record.php
