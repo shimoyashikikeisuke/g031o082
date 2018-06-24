@@ -21,30 +21,37 @@
         $pdo = new PDO('mysql:host=localhost;dbname=g031o082;charset=utf8','test','enzyl68x',
         array(PDO::ATTR_EMULATE_PREPARES => false));
 
-        $stmt = $pdo -> prepare("INSERT INTO muscle_bbd (name,muscle_level,muscle_genre,message)
-                                  VALUES (:name,:muscle_level,:muscle_genre,:message)"); //INSERTでデータをデータベースに挿入
-        $stmt->bindParam(':name',$name, PDO::PARAM_STR);
-        $stmt->bindValue(':muscle_level',$muscle_level, PDO::PARAM_INT);
-        $stmt->bindValue(':muscle_genre',$muscle_genre, PDO::PARAM_INT);
-        $stmt->bindParam(':message',$message, PDO::PARAM_STR);
-        $stmt->execute();
-        $dbh = null;
+        if ((($name == true) && ($message == true))) { //nameとmessageが入力された場合
+          $stmt = $pdo -> prepare("INSERT INTO muscle_bbd (name,muscle_level,muscle_genre,message)
+                                    VALUES (:name,:muscle_level,:muscle_genre,:message)"); //INSERTでデータをデータベースに挿入
+          $stmt->bindParam(':name',$name, PDO::PARAM_STR);
+          $stmt->bindValue(':muscle_level',$muscle_level, PDO::PARAM_INT);
+          $stmt->bindValue(':muscle_genre',$muscle_genre, PDO::PARAM_INT);
+          $stmt->bindParam(':message',$message, PDO::PARAM_STR);
+          $stmt->execute();
+          $dbh = null;
+        } else { //nameとmesssageが入力されていない、またはどちらかが入力されていない場合
+          header('Location:form.php'); //form.phpに戻る
+          exit();
+        }
 
-        //データベース内にあるデータを表示。muscle_level_tableとmuscle_genrel_tableを内部結合し出力
-        $stmt = $pdo->query("SELECT muscle_bbd.name,muscle_level.level,muscle_genre.genre,muscle_bbd.message from muscle_bbd
-                           AS muscle_bbd join muscle_level AS muscle_level on muscle_bbd.muscle_level = muscle_level.muscle_level
-                           join muscle_genre AS muscle_genre on muscle_bbd.muscle_genre = muscle_genre.muscle_genre");
+        /*データベース内にあるデータを表示させる。muscle_levelのlevelととmuscle_genrelのgenre
+           をuscle_bbdと内部結合させて出力する
+        */
+
+          $stmt = $pdo->query("SELECT muscle_bbd.name,muscle_level.level,muscle_genre.genre,muscle_bbd.message from muscle_bbd
+                             AS muscle_bbd join muscle_level AS muscle_level on muscle_bbd.muscle_level = muscle_level.muscle_level
+                             join muscle_genre AS muscle_genre on muscle_bbd.muscle_genre = muscle_genre.muscle_genre");
 
 
-          while($row = $stmt -> fetch(PDO::FETCH_ASSOC)) { //データ分だけ繰り返す
-            echo '<tr>';
-              foreach($row as $key){ //一行分のデータをを出力
-                echo '<td>'.$key.'</td>';
-              }
-              echo '</tr>';
-          }
+            while($row = $stmt -> fetch(PDO::FETCH_ASSOC)) { //データ分だけ繰り返す
+              echo '<tr>';
+                foreach($row as $key){ //一行分のデータをを出力
+                  echo '<td>'.$key.'</td>';
+                }
+                echo '</tr>';
+            }
           } catch (PDOException $e) {
             exit('データベース接続失敗。'.$e->getMessage());
           }
-
       ?>
