@@ -33,6 +33,11 @@
 
               if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { //
 
+                
+                /*下記の４１～４８行目でローカル環境だとログインできますがサーバーに上げるとelse処理になりログインが出来ません。
+                　データベース接続に問題があると思いましたが、過去の課題も今のデータベース接続でログインできたので問題ないと
+                 　思っています*/
+                
                 if (password_verify($password, $row['password'])) { //パスワードが一致したとき
                     session_regenerate_id(true);
                     $_SESSION["name"] = $row["name"];
