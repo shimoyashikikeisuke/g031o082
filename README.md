@@ -29,3 +29,8 @@
 脚筋メニュー：[leg_home.html](https://github.com/shimoyashikikeisuke/g031o082/blob/master/work/leg_home.html)
 ,[leg.php](https://github.com/shimoyashikikeisuke/g031o082/blob/master/work/leg.php)<br>
 [実行結果](http://153.126.169.140/g031o082/muscle_menu.html)<br>
+
+ログイン機能<br>
+ログイン画面：[login.php](https://github.com/shimoyashikikeisuke/g031o082/blob/master/work/login.php)<br>
+新規登録：[insert.php](https://github.com/shimoyashikikeisuke/g031o082/blob/master/work/insert.php)<br>
+[実行結果](http://153.126.169.140/g031o082/login.php)(途中)
