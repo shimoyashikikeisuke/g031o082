@@ -37,5 +37,6 @@
 
 ## 07/16 進捗
 掲示板投稿フォーム<br>
-投稿フォーム：[form.php](http://153.126.169.140/g031o082/form.php)
+投稿フォーム：[form.php](https://github.com/shimoyashikikeisuke/g031o082/blob/master/work/form.php)<br>
+[実行結果](http://153.126.169.140/g031o082/form.php)
 
