@@ -40,3 +40,10 @@
 投稿フォーム：[form.php](https://github.com/shimoyashikikeisuke/g031o082/blob/master/work/form.php)<br>
 [実行結果](http://153.126.169.140/g031o082/form.php)
 
+## 07/22 進捗
+掲示板投稿フォーム<br>
+投稿フォーム：[form.php](https://github.com/shimoyashikikeisuke/g031o082/blob/master/work/form.php)<br>
+一覧表示画面：[muscle_bbd.php](https://github.com/shimoyashikikeisuke/g031o082/blob/master/work/muscle_bbd.php)<br>
+[実行結果](http://153.126.169.140/g031o082/form.php)
+
+
